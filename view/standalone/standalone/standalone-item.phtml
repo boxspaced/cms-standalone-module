@@ -1,0 +1,41 @@
+<tr class="<?php echo ($this->partialLoop()->getPartialCounter() % 2) ? 'odd' : 'even' ?>">
+
+<td width="100%">
+
+<div class="item-icon">
+<img src="<?php echo $this->escapeHtmlAttr($this->typeIcon) ?>" alt="" title="<?php echo $this->escapeHtmlAttr($this->typeName) ?><?php if ($this->moduleName !== 'item') : ?> <?php echo $this->escapeHtmlAttr($this->moduleName) ?><?php endif; ?>" />
+</div>
+
+<div class="item-title">
+<em><a href="<?php echo $this->url('content', ['slug' => $this->name]); ?>"><?php echo $this->escapeHtml($this->name) ?></a></em>
+</div>
+
+<div class="item-detail">
+Type: <em><?php echo $this->escapeHtml($this->typeName) ?><?php if ($this->moduleName !== 'item') : ?> <?php echo $this->escapeHtml($this->moduleName) ?><?php endif; ?></em>
+</div>
+
+</td>
+
+<td>
+<span class="sprite-icon sprite-lightbulb-<?php echo $this->escapeHtmlAttr($this->lifespanState) ?>" title="<?php echo $this->escapeHtmlAttr($this->lifespanTitle) ?>">Bulb <?php echo $this->escapeHtml($this->lifespanState) ?> icon</span>
+</td>
+
+<?php if ($this->allowEdit) : ?>
+<td><a href="<?php echo $this->url($this->moduleName, ['action' => 'edit', 'id' => $this->id], ['query' => ['from' => 'standalone']]); ?>" title="Edit"><span class="sprite-icon sprite-edit-on">Edit icon</span></a></td>
+<?php else : ?>
+<td><span class="sprite-icon sprite-edit-off">Edit icon disabled</span></td>
+<?php endif; ?>
+
+<?php if ($this->allowPublish) : ?>
+<td><a href="<?php echo $this->url($this->moduleName, ['action' => 'publish', 'id' => $this->id], ['query' => ['from' => 'standalone']]); ?>" title="Edit publishing"><span class="sprite-icon sprite-globe-on">Globe icon</span></a></td>
+<?php else : ?>
+<td><span class="sprite-icon sprite-globe-off">Globe icon disabled</span></td>
+<?php endif; ?>
+
+<?php if ($this->allowDelete) : ?>
+<td><a href="<?php echo $this->url($this->moduleName, ['action' => 'delete', 'id' => $this->id], ['query' => ['from' => 'standalone']]); ?>" title="Delete"><span class="sprite-icon sprite-dustbin-on">Dustbin icon</span></a></td>
+<?php else : ?>
+<td><span class="sprite-icon sprite-dustbin-off">Dustbin disabled icon</span></td>
+<?php endif; ?>
+
+</tr>
