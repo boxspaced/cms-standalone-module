@@ -1,0 +1,1 @@
+# cms-standalone-module
