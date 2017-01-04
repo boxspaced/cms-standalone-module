@@ -2,6 +2,7 @@
 namespace Standalone;
 
 use Zend\Router\Http\Segment;
+use Zend\Permissions\Acl\Acl;
 
 return [
     'router' => [
@@ -22,6 +23,21 @@ return [
                 ],
             ],
             // LIFO
+        ],
+    ],
+    'acl' => [
+        'resources' => [
+            [
+                'id' => Controller\StandaloneController::class,
+            ],
+        ],
+        'rules' => [
+            [
+                'type' => Acl::TYPE_ALLOW,
+                'roles' => 'author',
+                'resources' => Controller\StandaloneController::class,
+                'privileges' => 'index',
+            ],
         ],
     ],
     'service_manager' => [
