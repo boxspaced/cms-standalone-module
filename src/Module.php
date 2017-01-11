@@ -1,5 +1,5 @@
 <?php
-namespace Standalone;
+namespace Boxspaced\CmsStandaloneModule;
 
 class Module
 {

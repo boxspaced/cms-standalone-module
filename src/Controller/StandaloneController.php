@@ -1,13 +1,13 @@
 <?php
-namespace Standalone\Controller;
+namespace Boxspaced\CmsStandaloneModule\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Log\Logger;
 use Zend\Paginator;
-use Standalone\Service;
-use Account\Service\AccountService;
-use Standalone\Service\StandaloneService;
+use Boxspaced\CmsStandaloneModule\Service;
+use Boxspaced\CmsAccountModule\Service\AccountService;
+use Boxspaced\CmsStandaloneModule\Service\StandaloneService;
 
 class StandaloneController extends AbstractActionController
 {

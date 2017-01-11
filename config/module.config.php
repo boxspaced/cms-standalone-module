@@ -1,5 +1,5 @@
 <?php
-namespace Standalone;
+namespace Boxspaced\CmsStandaloneModule;
 
 use Zend\Router\Http\Segment;
 use Zend\Permissions\Acl\Acl;

@@ -1,15 +1,15 @@
 <?php
-namespace Standalone\Service;
+namespace Boxspaced\CmsStandaloneModule\Service;
 
 use Boxspaced\EntityManager\EntityManager;
 use Zend\Authentication\AuthenticationService;
 use Zend\Log\Logger;
 use Zend\Db\Sql;
-use Account\Model\UserRepository;
-use Account\Model\User;
-use Item\Model\Item;
-use Versioning\Model\VersionableInterface;
-use Item\Service\ItemService;
+use Boxspaced\CmsAccountModule\Model\UserRepository;
+use Boxspaced\CmsAccountModule\Model\User;
+use Boxspaced\CmsItemModule\Model\Item;
+use Boxspaced\CmsVersioningModule\Model\VersionableInterface;
+use Boxspaced\CmsItemModule\Service\ItemService;
 
 class StandaloneService
 {

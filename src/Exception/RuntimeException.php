@@ -1,5 +1,5 @@
 <?php
-namespace Standalone\Exception;
+namespace Boxspaced\CmsStandaloneModule\Exception;
 
 class RuntimeException extends \RuntimeException implements ExceptionInterface
 {

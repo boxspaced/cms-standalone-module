@@ -1,13 +1,13 @@
 <?php
-namespace Standalone\Controller;
+namespace Boxspaced\CmsStandaloneModule\Controller;
 
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
-use Standalone\Controller\StandaloneController;
-use Standalone\Service\StandaloneService;
-use Account\Service\AccountService;
+use Boxspaced\CmsStandaloneModule\Controller\StandaloneController;
+use Boxspaced\CmsStandaloneModule\Service\StandaloneService;
+use Boxspaced\CmsAccountModule\Service\AccountService;
 use Zend\Log\Logger;
-use Core\Controller\AbstractControllerFactory;
+use Boxspaced\CmsCoreModule\Controller\AbstractControllerFactory;
 
 class StandaloneControllerFactory extends AbstractControllerFactory implements FactoryInterface
 {

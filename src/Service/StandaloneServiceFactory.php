@@ -1,12 +1,12 @@
 <?php
-namespace Standalone\Service;
+namespace Boxspaced\CmsStandaloneModule\Service;
 
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
 use Zend\Log\Logger;
 use Zend\Authentication\AuthenticationService;
 use Boxspaced\EntityManager\EntityManager;
-use Account\Model\UserRepository;
+use Boxspaced\CmsAccountModule\Model\UserRepository;
 
 class StandaloneServiceFactory implements FactoryInterface
 {
