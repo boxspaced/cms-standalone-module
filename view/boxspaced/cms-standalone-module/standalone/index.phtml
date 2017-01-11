@@ -52,7 +52,7 @@
                 <tbody>
 
                     <?php if ($this->standaloneItems) : ?>
-                        <?php echo $this->partialLoop('cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
+                        <?php echo $this->partialLoop('boxspaced/cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
                     <?php else : ?>
                         <tr class="odd"><td width="100%">Empty result set</td><td colspan="7">&nbsp;</td></tr>
                     <?php endif; ?>
@@ -63,7 +63,7 @@
             <?php echo $this->paginationControl(
                 $this->paginator,
                 'Sliding',
-                'cms-standalone-module/standalone/admin-pagination.phtml'
+                'boxspaced/cms-standalone-module/standalone/admin-pagination.phtml'
             ); ?>
 
         </div><!-- End stage area -->
