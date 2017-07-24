@@ -2,34 +2,29 @@
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Index of: standalone content</h1>
+                <h1>Standalone</h1>
 
-                <?php if ($this->allowCreateItem) : ?>
-                <div class="actions">
-                    <img src="/images/icons/add.png" alt="Add icon" />
-                    <a class="link-button" href="<?php echo $this->url('item', ['action' => 'create'], ['query' => ['from' => 'standalone', 'provisionalTo' => 'Standalone']]); ?>">Create new</a>
-                </div>
-                <?php endif; ?>
+                <div class="panel panel-default">
 
-                <table class="table">
-
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th colspan="7">Actions</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <?php if ($this->standaloneItems) : ?>
-                            <?php echo $this->partialLoop('boxspaced/cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
-                        <?php else : ?>
-                            <tr class="odd"><td width="100%">Empty result set</td><td colspan="7">&nbsp;</td></tr>
+                    <div class="panel-heading clearfix">
+                        <?php if ($this->allowCreateItem) : ?>
+                        <a class="btn btn-default pull-left" href="<?php echo $this->url('item', ['action' => 'create'], ['query' => ['from' => 'standalone', 'provisionalTo' => 'Standalone']]); ?>">Create new</a>
                         <?php endif; ?>
+                    </div>
 
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <tbody>
+
+                            <?php if ($this->standaloneItems) : ?>
+                                <?php echo $this->partialLoop('boxspaced/cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
+                            <?php else : ?>
+                                <tr class="odd"><td width="100%">Empty result set</td><td colspan="7">&nbsp;</td></tr>
+                            <?php endif; ?>
+
+                        </tbody>
+                    </table>
+
+                </div>
 
                 <?php echo $this->paginationControl(
                     $this->paginator,
