@@ -21,6 +21,8 @@ class StandaloneControllerFactory extends AbstractControllerFactory implements F
             $container->get('config')
         );
 
+        $this->adminNavigationWidget($controller);
+
         return $this->forceHttps($controller, $container);
     }
 
