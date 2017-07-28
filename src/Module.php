@@ -1,8 +1,8 @@
 <?php
 namespace Boxspaced\CmsStandaloneModule;
 
+use Boxspaced\CmsStandaloneModule\Controller\StandaloneController;
 use Boxspaced\CmsCoreModule\Listener\ForceHttpsListener;
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\MvcEvent;
 
 class Module
@@ -26,7 +26,7 @@ class Module
         $sharedEventManager = $eventManager->getSharedManager();
 
         $sharedEventManager->attach(
-            AbstractActionController::class,
+            StandaloneController::class,
             MvcEvent::EVENT_DISPATCH,
             new ForceHttpsListener(),
             100
