@@ -1,72 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title></title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
 
-        <link rel="stylesheet" type="text/css" href="/yui/reset/reset-min.css" />
-        <link rel="stylesheet" type="text/css" href="/yui/fonts/fonts-min.css" />
-        <link rel="stylesheet" type="text/css" href="/yui/button/assets/skins/sam/button.css" />
-        <link rel="stylesheet" type="text/css" href="/yui/menu/assets/skins/sam/menu.css" />
+        <div class="row">
+            <div class="col-md-12">
 
-        <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+                <h1>Standalone</h1>
 
-        <script type="text/javascript" src="/yui/utilities/utilities.js"></script>
-        <script type="text/javascript" src="/yui/container/container-min.js"></script>
-        <script type="text/javascript" src="/yui/menu/menu-min.js"></script>
-        <script type="text/javascript" src="/yui/button/button-min.js"></script>
+                <div class="panel panel-default">
 
-        <script type="text/javascript" src="/js/index_buttons.js"></script>
-        <script type="text/javascript" src="/js/general.js"></script>
-        <script type="text/javascript" src="/js/dynamic_tables.js"></script>
-    </head>
+                    <div class="panel-heading clearfix">
+                        <?php if ($this->allowCreateItem) : ?>
+                        <a class="btn btn-default pull-left" href="<?php echo $this->url('item', ['action' => 'create'], ['query' => ['from' => 'standalone', 'provisionalTo' => 'Standalone']]); ?>">Create new</a>
+                        <?php endif; ?>
+                    </div>
 
-    <body class="yui-skin-sam"><?php echo $this->adminNavigation ?>
+                    <table class="table">
+                        <tbody>
 
-        <div class="title">Index of: standalone content</div>
+                            <?php if ($this->standaloneItems) : ?>
+                                <?php echo $this->partialLoop('boxspaced/cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
+                            <?php else : ?>
+                                <tr class="odd"><td width="100%">Empty result set</td><td colspan="7">&nbsp;</td></tr>
+                            <?php endif; ?>
 
-        <?php echo $this->messages() ?>
+                        </tbody>
+                    </table>
 
-        <?php if ($this->allowCreateItem) : ?>
-        <div class="actions">
-            <img src="/images/icons/add.png" alt="Add icon" />
-            <a class="link-button" href="<?php echo $this->url('item', ['action' => 'create'], ['query' => ['from' => 'standalone', 'provisionalTo' => 'Standalone']]); ?>">Create new</a>
+                </div>
+
+                <?php echo $this->paginationControl(
+                    $this->paginator,
+                    'Sliding',
+                    'boxspaced/cms-core-module/partial/pagination.phtml'
+                ); ?>
+
+            </div>
         </div>
-        <?php endif; ?>
-
-        </div><!-- End top area -->
-
-        <div id="stage"><!-- Start stage area -->
-
-            <table class="table">
-
-                <thead>
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th colspan="7">Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <?php if ($this->standaloneItems) : ?>
-                        <?php echo $this->partialLoop('boxspaced/cms-standalone-module/standalone/standalone-item.phtml', $this->standaloneItems) ?>
-                    <?php else : ?>
-                        <tr class="odd"><td width="100%">Empty result set</td><td colspan="7">&nbsp;</td></tr>
-                    <?php endif; ?>
-
-                </tbody>
-            </table>
-
-            <?php echo $this->paginationControl(
-                $this->paginator,
-                'Sliding',
-                'boxspaced/cms-standalone-module/standalone/admin-pagination.phtml'
-            ); ?>
-
-        </div><!-- End stage area -->
-
-    </body>
-</html>

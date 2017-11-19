@@ -8,6 +8,7 @@ use Zend\Paginator;
 use Boxspaced\CmsStandaloneModule\Service;
 use Boxspaced\CmsAccountModule\Service\AccountService;
 use Boxspaced\CmsStandaloneModule\Service\StandaloneService;
+use Zend\EventManager\EventManagerInterface;
 
 class StandaloneController extends AbstractActionController
 {
@@ -56,7 +57,19 @@ class StandaloneController extends AbstractActionController
         $this->config = $config;
 
         $this->view = new ViewModel();
-        $this->view->setTerminal(true);
+    }
+
+    /**
+     * @param EventManagerInterface $events
+     * @return void
+     */
+    public function setEventManager(EventManagerInterface $events)
+    {
+        parent::setEventManager($events);
+        $controller = $this;
+        $events->attach('dispatch', function ($e) use ($controller) {
+            $controller->layout('layout/admin');
+        }, 100);
     }
 
     /**
@@ -64,11 +77,6 @@ class StandaloneController extends AbstractActionController
      */
     public function indexAction()
     {
-        $adminNavigation = $this->adminNavigationWidget();
-        if (null !== $adminNavigation) {
-            $this->view->addChild($adminNavigation, 'adminNavigation');
-        }
-
         $adapter = new Paginator\Adapter\Callback(
             function ($offset, $itemCountPerPage) {
                 return $this->standaloneService->getPublishedStandalone($offset, $itemCountPerPage);
